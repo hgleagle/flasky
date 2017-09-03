@@ -1,4 +1,5 @@
 *.py[cod]
+*.py.swp
 
 # C extensions
 *.so
@@ -34,6 +35,7 @@ nosetests.xml
 .mr.developer.cfg
 .project
 .pydevproject
+.ropeproject
 
 # SQLite databases
 *.sqlite
