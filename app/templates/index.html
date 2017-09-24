@@ -19,5 +19,10 @@
     <p>Happy to see you again!</p>
     {% endif %}
 </div>
-{{ wtf.quick_form(form) }}
+<div>
+	{% if current_user.can(Permission.WRITE_ARTICLES) %}
+		{{ wtf.quick_form(form) }}
+	{% endif %}
+</div>
+{% include "_posts.html" %}
 {% endblock %}
