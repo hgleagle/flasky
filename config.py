@@ -20,6 +20,7 @@ class Config:
     FLASKY_COMMENTS_PER_PAGE = 20
     SQLACHEMY_RECORD_QUERIES = True
     FLASKY_SLOW_DB_QUERY_TIME = 0.5
+    SSL_DISABLE = True
 
     @staticmethod
     def init_app(app):
@@ -84,6 +85,11 @@ class HerokuConfig(ProductionConfig):
         file_handler = StreamHandler()
         file_handler.setLevel(logging.WARNING)
         app.logger.addHandler(file_handler)
+        SSL_DISABLE = bool(os.environ.get('SSL_DISABLE'))
+
+        # handle proxy server headers
+        from werkzeug.contrib.fixers import ProxyFix
+        app.wsgi_app = ProxyFix(app.wsgi_app)
 
 
 config = {
