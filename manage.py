@@ -14,6 +14,13 @@ if os.environ.get('FLASK_COVERAGE'):
     COV = coverage.coverage(branch=True, include='app/*')
     COV.start()
 
+if os.path.exists('.env'):
+    print('Importing environment from .env...')
+    for line in open('.env'):
+        var = line.strip().strip('=')
+        if len(var) == 2:
+            os.environ[var[0]] = var[1]
+
 
 def make_shell_context():
     return dict(app=app, db=db, User=User, Role=Role, Post=Post)
