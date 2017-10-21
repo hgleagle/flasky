@@ -1,0 +1,36 @@
+[[source]]
+
+verify_ssl = true
+url = "https://pypi.python.org/simple"
+name = "pypi"
+
+
+[packages]
+
+flask = "*"
+flask-wtf = "*"
+flask-mail = "*"
+flask-script = "*"
+flask-pagedown = "*"
+flask-moment = "*"
+flask-login = "*"
+flask-bootstrap = "*"
+flask-migrate = "*"
+markdown = "*"
+bleach = "*"
+flask-httpauth = "*"
+gunicorn = "*"
+
+
+[dev-packages]
+
+forgerypy = "*"
+coverage = "*"
+httpie = "*"
+requests = "*"
+selenium = "*"
+
+
+[requires]
+
+python_version = "3.5"
